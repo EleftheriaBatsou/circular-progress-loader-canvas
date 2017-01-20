@@ -1,0 +1,12 @@
+body{ background-color: #fff; 
+  color: #0e7feb; /* blue */ 
+}
+
+a:link    {color:#0e7feb;  text-decoration:none}
+a:visited {color:#B24900; text-decoration:none}
+a:hover   {color:#FF8633; text-decoration:underline} /* Yellow */
+
+h1{
+  font-family: Helvetica;
+  font-size: 450%;
+}

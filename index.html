@@ -1,0 +1,72 @@
+<html>
+
+<head>
+<link href="http://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>  
+  <div class="container-fluid text-center">
+       
+    <div class="row"> <!-- for title -->
+      <h1>  Circular Progress Loader</h1>     
+    </div> <!-- end title -->
+    
+    <div class="row"> <!-- for main -->
+     <canvas id="my_canvas" width="70" height="70" style="border:1px dashed #CCC;"></canvas>
+    </div> <!-- end main -->
+    
+    
+    <!-- for footer -->
+    <div class="row text-center"> 
+      <h5><a href="http://www.eleftheriabatsou.com" target="_blank">Eleftheria Batsou</a> | <a href="http://codepen.io/EleftheriaBatsou" target="_blank">Projects</a></h5>
+    </div> <!-- end footer -->
+  
+  </div> <!-- end class container-fluid --> 
+  
+  <script>
+  var ctx = document.getElementById('my_canvas').getContext('2d');
+var al = 0;
+var start = 4.72;
+var cw = ctx.canvas.width;
+var ch = ctx.canvas.height; 
+var diff;
+function progressSim(){
+	diff = ((al / 100) * Math.PI*2*10).toFixed(2);
+	ctx.clearRect(0, 0, cw, ch);
+	ctx.lineWidth = 10;
+	ctx.fillStyle = '#B24900'; //for the circle
+	ctx.strokeStyle = "#09F"; //for the letters
+	ctx.textAlign = 'center';
+	ctx.fillText(al+'%', cw*.5, ch*.5+2, cw);
+	ctx.beginPath();
+	ctx.arc(35, 35, 30, start, diff/10+start, false);
+	ctx.stroke();
+	if(al >= 100){
+		clearTimeout(sim);
+	    // Add scripting here that will run when progress completes
+    alert ("Captain here, close this window and you will have 100%!!!");
+	}
+	al++;
+}
+var sim = setInterval(progressSim, 50);
+  </script>
+  
+</body>
+   
+
+
+
+
+</html>
